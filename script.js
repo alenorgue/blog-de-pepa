@@ -14,3 +14,20 @@ const ciudades = {
 
 // ¡Buena suerte!
 
+// Función para mostrar la información de una ciudad
+function mostrarCiudad(ciudad) {
+    const infoCiudad = ciudades[ciudad];
+    if (infoCiudad) {
+        document.getElementById("cityNombre").textContent = infoCiudad.nombre;
+        document.getElementById("cityImagen").src = infoCiudad.imagen;
+        document.getElementById("cityDescripcion").textContent = infoCiudad.descripcion;
+        document.getElementById("cityInfo").style.display = "block";
+    } else {
+        console.error("Ciudad no encontrada");
+    }
+};
+// Evento para cargar la información de la ciudad al hacer clic en el botón
+document.getElementById("citySelector").addEventListener("change", function() {
+    const ciudadSeleccionada = document.getElementById("citySelector").value;
+    mostrarCiudad(ciudadSeleccionada);
+});
